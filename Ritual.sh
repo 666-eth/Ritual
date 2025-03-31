@@ -12,42 +12,26 @@ SCRIPT_PATH="$HOME/Ritual.sh"
 
 # 主菜单函数
 function main_menu() {
-    while true; do
-        clear
-        echo "脚本由大赌社区哈哈哈哈编写，推特 @ferdie_jhovie，免费开源，请勿相信收费"
-        echo "如有问题，可联系推特，仅此只有一个号"
-        echo "================================================================"
-        echo "退出脚本，请按键盘 ctrl + C 退出即可"
-        echo "请选择要执行的操作:"
-        echo "1) 安装 Ritual 节点"
-        echo "2. 查看 Ritual 节点日志"
-        echo "3. 删除 Ritual 节点"
-        echo "4. 退出脚本"
-        
-        read -p "请输入您的选择: " choice
-
-        case $choice in
-            1) 
-                install_ritual_node
-                ;;
-            2)
-                view_logs
-                ;;
-            3)
-                remove_ritual_node
-                ;;
-            4)
-                echo "退出脚本！"
-                exit 0
-                ;;
-            *)
-                echo "无效选项，请重新选择。"
-                ;;
-        esac
-
-        echo "按任意键继续..."
-        read -n 1 -s
-    done
+    # 自动选择 '1'（安装 Ritual 节点）
+    choice=1
+    case $choice in
+        1) 
+            install_ritual_node
+            ;;
+        2)
+            view_logs
+            ;;
+        3)
+            remove_ritual_node
+            ;;
+        4)
+            echo "退出脚本！"
+            exit 0
+            ;;
+        *)
+            echo "无效选项，请重新选择。"
+            ;;
+    esac
 }
 
 # 安装 Ritual 节点函数
